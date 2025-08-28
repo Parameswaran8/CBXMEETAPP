@@ -1,0 +1,59 @@
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Logs
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# React Native
+.expo/
+.expo-shared/
+dist/
+tmp/
+temp/
+*.tmp
+
+# Metro cache
+.metro-cache/
+.cache/
+
+# macOS
+.DS_Store
+
+# VSCode / IDEs
+.vscode/
+.idea/
+*.iml
+
+# Android
+/android/app/build/
+/android/.gradle/
+/android/local.properties
+/android/captures/
+/android/app/*.keystore
+/android/app/*.jks
+/android/.cxx/
+/android/app/intermediates/
+/android/app/outputs/
+
+# iOS
+/ios/build/
+/ios/Pods/
+/ios/*.xcworkspace
+*.xcodeproj/project.xcworkspace/
+/ios/*.xcuserstate
+/ios/*.xcuserdata/
+/ios/DerivedData/
+/ios/.swiftpm/
+/ios/.build/
+
+# Misc
+*.swp
+*.swo

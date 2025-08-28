@@ -1,13 +1,9 @@
 import React from "react";
-import type { PropsWithChildren } from "react";
-import { Text, useColorScheme } from "react-native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { useColorScheme } from "react-native";
 
 import { Colors } from "react-native/Libraries/NewAppScreen";
-import LoginScreen from "./src/Authorization/Login";
-import FeatureMain from "./src/FeatureMain/FeatureMain";
-import SplaceScreen from "./src/SplashScreen/SplashScreen";
-import WebViewContainer from "./src/WebViewContainer/WebViewContainer";
+import { NavigationContainer } from "@react-navigation/native";
+import RootStack from "./src/Navigations/NavigationSetup";
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === "dark";
@@ -16,12 +12,9 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaProvider>
-      <LoginScreen />
-      {/* <FeatureMain /> */}
-      {/* <SplaceScreen /> */}
-      {/* <WebViewContainer /> */}
-    </SafeAreaProvider>
+    <NavigationContainer>
+      <RootStack />
+    </NavigationContainer>
   );
 }
 

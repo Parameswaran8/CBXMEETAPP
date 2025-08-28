@@ -82,6 +82,60 @@ if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   file(TOUCH_NOCREATE "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/android/app/.cxx/Debug/392q225r/x86/CMakeFiles/cmake.verify_globs")
 endif()
 
+# LIB_CUSTOM_SRCS at /Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt:23 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/*.cpp")
+set(OLD_GLOB
+  "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/rnscreens.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/android/app/.cxx/Debug/392q225r/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# LIB_CUSTOM_SRCS at /Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt:23 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/*.cpp")
+set(OLD_GLOB
+  "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSBottomTabsShadowNode.cpp"
+  "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSBottomTabsState.cpp"
+  "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSFullWindowOverlayShadowNode.cpp"
+  "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSModalScreenShadowNode.cpp"
+  "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSScreenShadowNode.cpp"
+  "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSScreenStackHeaderConfigShadowNode.cpp"
+  "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSScreenStackHeaderConfigState.cpp"
+  "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSScreenStackHeaderSubviewShadowNode.cpp"
+  "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSScreenStackHeaderSubviewState.cpp"
+  "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSScreenState.cpp"
+  "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/RNSSplitViewScreenShadowNode.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/android/app/.cxx/Debug/392q225r/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# LIB_CUSTOM_SRCS at /Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt:23 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../../common/cpp/react/renderer/components/rnscreens/utils/*.cpp")
+set(OLD_GLOB
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/android/app/.cxx/Debug/392q225r/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
+# LIB_CODEGEN_SRCS at /Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt:24 (file)
+file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/*.cpp")
+set(OLD_GLOB
+  "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/ComponentDescriptors.cpp"
+  "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/EventEmitters.cpp"
+  "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/Props.cpp"
+  "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/ShadowNodes.cpp"
+  "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/States.cpp"
+  "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/../../../build/generated/source/codegen/jni/react/renderer/components/rnscreens/rnscreensJSI-generated.cpp"
+  )
+if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
+  message("-- GLOB mismatch!")
+  file(TOUCH_NOCREATE "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/android/app/.cxx/Debug/392q225r/x86/CMakeFiles/cmake.verify_globs")
+endif()
+
 # rnsvg_SRCS at /Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt:10 (file)
 file(GLOB NEW_GLOB LIST_DIRECTORIES true "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-svg/android/src/main/jni/*.cpp")
 set(OLD_GLOB

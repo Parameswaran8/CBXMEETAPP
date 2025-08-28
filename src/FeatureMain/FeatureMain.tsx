@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from "react";
 import {
   View,
   TouchableOpacity,
@@ -7,21 +7,21 @@ import {
   Alert,
   ScrollView,
   Dimensions,
-} from 'react-native';
+} from "react-native";
 import {
   QuickMeetingIcon,
   SeamlessCalendarIcon,
   SmartReminderIcon,
-} from '../Icons/Icons';
-import { SafeAreaView } from 'react-native-safe-area-context';
+} from "../Icons/Icons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-const { width } = Dimensions.get('window');
+const { width } = Dimensions.get("window");
 
 type FeatureMainProps = {
   onFinish?: () => void; // <-- added
 };
 
-export default function FeatureMain({ onFinish }: FeatureMainProps) {
+export default function OnBoardingScreen({ onFinish }: FeatureMainProps) {
   const scrollRef = useRef<ScrollView>(null);
   const [pageIndex, setPageIndex] = useState(0);
 
@@ -117,53 +117,53 @@ export default function FeatureMain({ onFinish }: FeatureMainProps) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#142F5A',
+    backgroundColor: "#142F5A",
   },
   skipButtonContainer: {
-    alignItems: 'flex-end',
+    alignItems: "flex-end",
     paddingTop: 20,
     paddingRight: 20,
   },
   button: {
-    backgroundColor: '#040C1A',
+    backgroundColor: "#040C1A",
     borderRadius: 43,
     paddingVertical: 10,
     paddingHorizontal: 21,
   },
   buttonText: {
-    color: '#FFFFFF',
+    color: "#FFFFFF",
     fontSize: 14,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   middleContent: {
     width: width,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     gap: 80,
   },
   titleText: {
-    color: '#FFFFFF',
+    color: "#FFFFFF",
     fontSize: 58,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: "bold",
+    textAlign: "center",
     marginHorizontal: 26,
   },
   progressContainer: {
-    alignItems: 'center',
+    alignItems: "center",
     marginBottom: 60,
   },
   progressBarRow: {
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 20,
   },
   progressDot: {
     width: 72,
     height: 5,
     borderRadius: 25,
-    backgroundColor: '#040C1A3B',
+    backgroundColor: "#040C1A3B",
   },
   activeDot: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "#FFFFFF",
     width: 72,
   },
 });

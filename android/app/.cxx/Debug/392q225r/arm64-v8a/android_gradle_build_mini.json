@@ -1,6 +1,10 @@
 {
   "buildFiles": [
+    "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-mmkv/MMKV/Core/CMakeLists.txt",
+    "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-mmkv/android/CMakeLists.txt",
+    "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-mmkv/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt",
+    "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt",
     "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt",
     "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup/CMakeLists.txt"
   ],
@@ -29,6 +33,32 @@
         "/Users/harekrishn/.gradle/caches/8.12/transforms/fe8171312f8c0c1e92683296510581b4/transformed/react-android-0.78.3-debug/prefab/modules/reactnative/libs/android.arm64-v8a/libreactnative.so"
       ]
     },
+    "core::@1b9a7d546b295b7d0867": {
+      "artifactName": "core",
+      "abi": "arm64-v8a",
+      "output": "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/android/app/.cxx/Debug/392q225r/arm64-v8a/RNMmkvSpec_cxxmodule_autolinked_build/core/libcore.a",
+      "runtimeFiles": []
+    },
+    "react-native-mmkv::@4ae6a1e65d3e68ba0197": {
+      "artifactName": "react-native-mmkv",
+      "abi": "arm64-v8a",
+      "output": "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/android/app/build/intermediates/cxx/Debug/392q225r/obj/arm64-v8a/libreact-native-mmkv.so",
+      "runtimeFiles": [
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/bed008b7c3772c7d5adf4fefb31dbc50/transformed/fbjni-0.7.0/prefab/modules/fbjni/libs/android.arm64-v8a/libfbjni.so",
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/fe8171312f8c0c1e92683296510581b4/transformed/react-android-0.78.3-debug/prefab/modules/jsi/libs/android.arm64-v8a/libjsi.so",
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/fe8171312f8c0c1e92683296510581b4/transformed/react-android-0.78.3-debug/prefab/modules/reactnative/libs/android.arm64-v8a/libreactnative.so"
+      ]
+    },
+    "react_codegen_rnscreens::@25bcbd507e98d3a854ad": {
+      "artifactName": "react_codegen_rnscreens",
+      "abi": "arm64-v8a",
+      "output": "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/android/app/build/intermediates/cxx/Debug/392q225r/obj/arm64-v8a/libreact_codegen_rnscreens.so",
+      "runtimeFiles": [
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/fe8171312f8c0c1e92683296510581b4/transformed/react-android-0.78.3-debug/prefab/modules/reactnative/libs/android.arm64-v8a/libreactnative.so",
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/fe8171312f8c0c1e92683296510581b4/transformed/react-android-0.78.3-debug/prefab/modules/jsi/libs/android.arm64-v8a/libjsi.so",
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/bed008b7c3772c7d5adf4fefb31dbc50/transformed/fbjni-0.7.0/prefab/modules/fbjni/libs/android.arm64-v8a/libfbjni.so"
+      ]
+    },
     "appmodules::@6890427a1f51a3e7e1df": {
       "artifactName": "appmodules",
       "abi": "arm64-v8a",
@@ -48,6 +78,11 @@
         "/Users/harekrishn/.gradle/caches/8.12/transforms/fe8171312f8c0c1e92683296510581b4/transformed/react-android-0.78.3-debug/prefab/modules/jsi/libs/android.arm64-v8a/libjsi.so",
         "/Users/harekrishn/.gradle/caches/8.12/transforms/bed008b7c3772c7d5adf4fefb31dbc50/transformed/fbjni-0.7.0/prefab/modules/fbjni/libs/android.arm64-v8a/libfbjni.so"
       ]
+    },
+    "react_codegen_RNMmkvSpec::@7541eabbae598da31a69": {
+      "artifactName": "react_codegen_RNMmkvSpec",
+      "abi": "arm64-v8a",
+      "runtimeFiles": []
     }
   }
 }

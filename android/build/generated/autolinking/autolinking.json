@@ -56,6 +56,44 @@
         }
       }
     },
+    "react-native-screens": {
+      "root": "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens",
+      "name": "react-native-screens",
+      "platforms": {
+        "ios": {
+          "podspecPath": "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/RNScreens.podspec",
+          "version": "4.15.4",
+          "configurations": [],
+          "scriptPhases": []
+        },
+        "android": {
+          "sourceDir": "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android",
+          "packageImportPath": "import com.swmansion.rnscreens.RNScreensPackage;",
+          "packageInstance": "new RNScreensPackage()",
+          "buildTypes": [],
+          "libraryName": "rnscreens",
+          "componentDescriptors": [
+            "RNSFullWindowOverlayComponentDescriptor",
+            "RNSScreenContainerComponentDescriptor",
+            "RNSScreenNavigationContainerComponentDescriptor",
+            "RNSScreenStackHeaderConfigComponentDescriptor",
+            "RNSScreenStackHeaderSubviewComponentDescriptor",
+            "RNSScreenStackComponentDescriptor",
+            "RNSSearchBarComponentDescriptor",
+            "RNSScreenComponentDescriptor",
+            "RNSScreenFooterComponentDescriptor",
+            "RNSScreenContentWrapperComponentDescriptor",
+            "RNSModalScreenComponentDescriptor",
+            "RNSBottomTabsComponentDescriptor"
+          ],
+          "cmakeListsPath": "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt",
+          "cxxModuleCMakeListsModuleName": null,
+          "cxxModuleCMakeListsPath": null,
+          "cxxModuleHeaderName": null,
+          "isPureCxxDependency": false
+        }
+      }
+    },
     "react-native-svg": {
       "root": "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-svg",
       "name": "react-native-svg",

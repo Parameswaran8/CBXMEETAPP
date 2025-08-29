@@ -6,8 +6,9 @@ export class NavigationService {
   // Check if it's the first time launching the app
   static async isFirstLaunch(): Promise<boolean> {
     try {
-      const hasLaunched = storage.getString("FIRST_LAUNCH");
-      return hasLaunched === null;
+      const hasLaunched = storage.getBoolean("FIRST_LAUNCH") ?? false;
+      // console.log("10,", hasLaunched);
+      return hasLaunched;
     } catch (error) {
       console.error("Error checking first launch:", error);
       return true;
@@ -26,8 +27,8 @@ export class NavigationService {
   // Check if user is logged in
   static async isUserLoggedIn(): Promise<boolean> {
     try {
-      const isLoggedIn = storage.getString("USER_LOGGED_IN");
-      return isLoggedIn === "true";
+      const isLoggedIn = storage.getBoolean("USER_LOGGED_IN");
+      return isLoggedIn === true;
     } catch (error) {
       console.error("Error checking login status:", error);
       return false;
@@ -37,7 +38,7 @@ export class NavigationService {
   // Set user login status
   static async setUserLoggedIn(status: boolean): Promise<void> {
     try {
-      storage.set("USER_LOGGED_IN", status.toString());
+      storage.set("USER_LOGGED_IN", status);
     } catch (error) {
       console.error("Error setting login status:", error);
     }

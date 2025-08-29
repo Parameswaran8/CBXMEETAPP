@@ -14,19 +14,29 @@ import {
   SmartReminderIcon,
 } from "../Icons/Icons";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useNavigation } from "@react-navigation/native";
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { NavigationService } from "../Navigations/NavigationService";
 
 const { width } = Dimensions.get("window");
-
-type FeatureMainProps = {
-  onFinish?: () => void; // <-- added
+// Define your stack param list
+type RootStackParamList = {
+  Onboard: undefined;
+  Login: undefined;
+  WebView: undefined;
+  // Add other screens as needed
 };
 
-export default function OnBoardingScreen({ onFinish }: FeatureMainProps) {
+export default function OnBoardingScreen() {
   const scrollRef = useRef<ScrollView>(null);
   const [pageIndex, setPageIndex] = useState(0);
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
-  const handleSkip = () => {
-    if (onFinish) onFinish();
+  const handleSkip = async () => {
+    await NavigationService.markAsLaunched();
+    navigation.navigate("Login");
+    // if (onFinish) onFinish();
   };
 
   const handleScroll = (event: any) => {
@@ -35,14 +45,15 @@ export default function OnBoardingScreen({ onFinish }: FeatureMainProps) {
     setPageIndex(index);
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (pageIndex < 2) {
       scrollRef.current?.scrollTo({
         x: (pageIndex + 1) * width,
         animated: true,
       });
     } else {
-      if (onFinish) onFinish(); // finish onboarding
+      await NavigationService.markAsLaunched();
+      navigation.navigate("Login");
     }
   };
 

@@ -2,17 +2,34 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
 import { BackIcon, GoogleIcon } from "../Icons/Icons";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { storage } from "../Context/storage";
+import { useNavigation } from "@react-navigation/native";
+import { NavigationService } from "../Navigations/NavigationService";
+
+type LoginScreenProps = {
+  onLoginSuccess?: () => void; // 👈 added
+};
 
 const LoginScreen = () => {
+  const navigation = useNavigation<{
+    navigate: (route: "WebView" | string) => void;
+  }>();
+
   const handleGoogleLogin = () => {
     // 👉 Here you can integrate Firebase / Google SDK
     // For now simulate success
     Alert.alert("Login Successful", "You are now logged in!", [
       {
         text: "OK",
-        onPress: () => {
-          // if (onLoginSuccess) onLoginSuccess();
+        onPress: async () => {
+          await NavigationService.setUserLoggedIn(true);
+          const isLoggedIn = await NavigationService.isUserLoggedIn();
+
+          console.log("isLoggedIn", isLoggedIn);
+
+          if (isLoggedIn) {
+            navigation.navigate("WebView");
+            return;
+          }
         },
       },
     ]);
@@ -22,7 +39,7 @@ const LoginScreen = () => {
     <SafeAreaView edges={["top"]} style={styles.container}>
       {/* Top Section - Back Button */}
       <View style={styles.topBar}>
-        <BackIcon size={24} color="black" />
+        {/* <BackIcon size={24} color="black" /> */}
       </View>
 
       {/* Middle Section */}

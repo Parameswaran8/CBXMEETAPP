@@ -1,56 +1,61 @@
 import React, { useEffect } from "react";
 import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-// import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-// import { RootStackParamList } from "../Navigations/Navigation";
-// import { NavigationService } from "../Navigations/NavigationService";
 
 import { CBXMEETLOGO } from "../Icons/Icons";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationService } from "../Navigations/NavigationService";
+import { useNavigation } from "@react-navigation/native";
+import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
+
+// Define your stack param list
+type RootStackParamList = {
+  Onboard: undefined;
+  Login: undefined;
+  WebView: undefined;
+  // Add other screens as needed
+};
+
+// const Stack = createNativeStackNavigator();
 
 // type SplashScreenNavigationProp = NativeStackNavigationProp<
-//   RootStackParamList,
-//   "Splash"
-// >;
-
-// interface Props {
-//   navigation: SplashScreenNavigationProp;
-// }
-
-// const SplaceScreen: React.FC<Props> = ({ navigation }) => {
 const SplaceScreen = () => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+
   useEffect(() => {
     const initializeApp = async () => {
       try {
         // Show splash for 3 seconds
         await new Promise<void>((resolve) => setTimeout(resolve, 3000));
         // Check if it's the first launch
-        // const isFirstTime = await NavigationService.isFirstLaunch();
+        const isFirstTime = await NavigationService.isFirstLaunch();
+        console.log(33, isFirstTime);
 
-        // if (isFirstTime) {
-        // Mark as launched and show onboarding
-        // await NavigationService.markAsLaunched();
-        // navigation.replace("FeatureMain");
-        // return;
-        // }
+        if (!isFirstTime) {
+          // Mark as launched and show onboarding
+          await NavigationService.markAsLaunched();
+          navigation.navigate("Onboard");
+          return;
+        }
 
-        // // Check if user is logged in
-        // const isLoggedIn = await NavigationService.isUserLoggedIn();
+        // Check if user is logged in
+        const isLoggedIn = await NavigationService.isUserLoggedIn();
 
-        // if (!isLoggedIn) {
-        //   navigation.replace("FeatureMain");
-        //   // navigation.replace("Login");
-        //   return;
-        // }
+        if (!isLoggedIn) {
+          // navigation.replace("FeatureMain");
+          navigation.navigate("Login");
+          return;
+        }
 
-        // // Check internet connectivity
+        // Check internet connectivity
         // const connectivity = await NavigationService.checkInternetConnection();
-
         // if (!connectivity.isConnected || !connectivity.isInternetReachable) {
         //   navigation.replace("NoInternet");
         //   return;
         // }
 
-        // // Test connection speed
+        // Test connection speed
         // const speed = await NavigationService.testConnectionSpeed();
         // if (speed === "slow" || speed === "error") {
         //   navigation.replace("ConnectionIssue");
@@ -58,11 +63,11 @@ const SplaceScreen = () => {
         // }
 
         // All checks passed, go to WebView
-        // navigation.replace("WebView");
+        navigation.navigate("WebView");
       } catch (error) {
         console.error("Error during app initialization:", error);
         // Fallback to login screen
-        // navigation.replace("Login");
+        navigation.navigate("Login");
       }
     };
 

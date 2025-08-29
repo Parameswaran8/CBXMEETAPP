@@ -26,7 +26,7 @@ function RootStack() {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="WebViewContainer"
+        name="WebView"
         component={WebViewContainer}
         options={{ headerShown: false }}
       />

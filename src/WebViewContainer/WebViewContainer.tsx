@@ -1,11 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  StatusBar,
-  Alert,
-  BackHandler,
-} from "react-native";
+import { StyleSheet, StatusBar, Alert, BackHandler } from "react-native";
 import React, { useEffect, useRef, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRoute, RouteProp, useNavigation } from "@react-navigation/native";
@@ -33,20 +26,18 @@ const WebViewContainer = () => {
 
   const [userEmail, setUserEmail] = useState("");
   const [userName, setUserName] = useState("");
-  const [uniqueId, setUniqueId] = useState("");
   const [canGoBack, setCanGoBack] = useState(false);
   const webviewRef = useRef<WebView>(null);
 
-  const { email, name, id } = userInfo?.data?.user || {};
+  const { email, name } = userInfo?.data?.user || {};
   const securityToken = "TNSpl@123#";
 
   useEffect(() => {
-    if (email && name && id) {
+    if (email && name) {
       setUserEmail(email);
       setUserName(name);
-      setUniqueId(id);
     }
-  }, [email, name, id]);
+  }, [email, name]);
 
   // ✅ Handle Android Back Button
   useEffect(() => {
@@ -80,7 +71,8 @@ const WebViewContainer = () => {
         <WebView
           ref={webviewRef}
           source={{
-            uri: `https://meet.ceoitbox.com/?email=${userEmail}&passKey=${securityToken}&userName=${userName}`,
+            uri: `https://ai.ceoitbox.com/?email=${userEmail}&passKey=${securityToken}&userName=${userName}`,
+            // uri: `https://meet.ceoitbox.com/?email=${userEmail}&passKey=${securityToken}&userName=${userName}`,
           }}
           style={{ flex: 1 }}
           javaScriptEnabled={true}

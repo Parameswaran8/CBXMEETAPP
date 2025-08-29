@@ -1,38 +1,45 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
 import { BackIcon, GoogleIcon } from "../Icons/Icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
-import { NavigationService } from "../Navigations/NavigationService";
+// import { NavigationService } from "../Navigations/NavigationService";
 
-type LoginScreenProps = {
-  onLoginSuccess?: () => void; // 👈 added
-};
+import { GoogleSignin } from "@react-native-google-signin/google-signin";
+import { NavigationService } from "../Navigations/NavigationService";
+import Navigation from "../Navigations/Navigation";
 
 const LoginScreen = () => {
-  const navigation = useNavigation<{
-    navigate: (route: "WebView" | string) => void;
-  }>();
+  const navigation = useNavigation<any>();
 
-  const handleGoogleLogin = () => {
-    // 👉 Here you can integrate Firebase / Google SDK
-    // For now simulate success
-    Alert.alert("Login Successful", "You are now logged in!", [
-      {
-        text: "OK",
-        onPress: async () => {
-          await NavigationService.setUserLoggedIn(true);
-          const isLoggedIn = await NavigationService.isUserLoggedIn();
+  useEffect(() => {
+    GoogleSignin.configure({
+      webClientId:
+        "159938487854-m996hp9rpsi9sqj3r93r9kblar0dvrs1.apps.googleusercontent.com",
+      offlineAccess: true,
+      scopes: ["profile", "email"],
+    });
+  }, []);
 
-          console.log("isLoggedIn", isLoggedIn);
+  const signIn = async () => {
+    try {
+      await GoogleSignin.hasPlayServices();
+      await GoogleSignin.signOut();
+      const userInfo = await GoogleSignin.signIn();
+      console.log("userInfo ", userInfo.data);
 
-          if (isLoggedIn) {
-            navigation.navigate("WebView");
-            return;
-          }
-        },
-      },
-    ]);
+      if (userInfo) {
+        await NavigationService.setUserLoggedIn(userInfo);
+      }
+
+      const getUserInfo = await NavigationService.isUserLoggedIn();
+
+      if (getUserInfo) {
+        navigation.navigate("WebView", { userInfo: getUserInfo });
+      }
+    } catch (error) {
+      console.error("Google Sign-In error:", error);
+    }
   };
 
   return (
@@ -51,7 +58,8 @@ const LoginScreen = () => {
 
         <TouchableOpacity
           style={styles.googleButton}
-          onPress={handleGoogleLogin}
+          // onPress={handleGoogleLogin}
+          onPress={signIn}
         >
           <View style={styles.googleIcon}>
             <GoogleIcon size={48} />

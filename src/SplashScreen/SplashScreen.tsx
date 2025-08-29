@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
-import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import React, { useEffect, useRef } from "react";
+import { View, Text, StyleSheet, Animated, Easing } from "react-native";
 
 import { CBXMEETLOGO } from "../Icons/Icons";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationService } from "../Navigations/NavigationService";
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
@@ -12,18 +10,36 @@ import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 type RootStackParamList = {
   Onboard: undefined;
   Login: undefined;
-  WebView: undefined;
+  WebView: { userInfo: any };
   // Add other screens as needed
 };
-
-// const Stack = createNativeStackNavigator();
 
 // type SplashScreenNavigationProp = NativeStackNavigationProp<
 const SplaceScreen = () => {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  // 🔥 fade animation
+  const fadeAnim = useRef(new Animated.Value(0.3)).current;
 
   useEffect(() => {
+    // ✅ Start glowing animation (pulse effect)
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(fadeAnim, {
+          toValue: 1,
+          duration: 1200,
+          easing: Easing.inOut(Easing.ease),
+          useNativeDriver: true,
+        }),
+        Animated.timing(fadeAnim, {
+          toValue: 0.3,
+          duration: 1200,
+          easing: Easing.inOut(Easing.ease),
+          useNativeDriver: true,
+        }),
+      ])
+    ).start();
+
     const initializeApp = async () => {
       try {
         // Show splash for 3 seconds
@@ -41,6 +57,8 @@ const SplaceScreen = () => {
 
         // Check if user is logged in
         const isLoggedIn = await NavigationService.isUserLoggedIn();
+
+        console.log("46", isLoggedIn);
 
         if (!isLoggedIn) {
           // navigation.replace("FeatureMain");
@@ -63,7 +81,7 @@ const SplaceScreen = () => {
         // }
 
         // All checks passed, go to WebView
-        navigation.navigate("WebView");
+        navigation.navigate("WebView", { userInfo: isLoggedIn });
       } catch (error) {
         console.error("Error during app initialization:", error);
         // Fallback to login screen
@@ -73,28 +91,27 @@ const SplaceScreen = () => {
 
     initializeApp();
   }, []);
-  // }, [navigation]);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.contentContainer}>
-        <View></View>
-        <View style={styles.logoContainer}>
-          <CBXMEETLOGO width={170} height={153} color={"#fff"} />
-          <Text style={styles.titleText}>CBXMEET</Text>
-          <Text style={styles.subtitleText}>Meeting Scheduler</Text>
-        </View>
+    <View style={styles.contentContainer}>
+      {/* Top blank */}
+      <View style={styles.blank} />
+      {/* Middle Logo */}
+      <Animated.View style={[styles.logoContainer, { opacity: fadeAnim }]}>
+        <CBXMEETLOGO width={170} height={153} color={"#003366"} />
+        <Text style={styles.titleText}>CBXMEET</Text>
+        <Text style={styles.subtitleText}>Meeting Scheduler</Text>
+      </Animated.View>
 
-        {/* Background stripes */}
-        {/* <View style={styles.bottomcontainer}> */}
+      {/* Bottom stripes */}
+      <View style={styles.bottomcontainer}>
         <View style={styles.backgroundStripe1} />
         <View style={styles.backgroundStripe2} />
         <View style={styles.backgroundStripe3} />
         <View style={styles.backgroundStripe4} />
         <View style={styles.backgroundStripe5} />
-        {/* </View> */}
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -107,15 +124,13 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
+    justifyContent: "space-between",
     alignItems: "center",
     backgroundColor: "#FFFFFF",
     borderRadius: 30,
   },
-  topImage: {
-    borderRadius: 30,
-    height: 37,
-    marginBottom: 240,
-    alignSelf: "stretch",
+  blank: {
+    flex: 0.3,
   },
   logoContainer: {
     marginBottom: 5,
@@ -134,6 +149,13 @@ const styles = StyleSheet.create({
   loader: {
     marginTop: 20,
   },
+
+  bottomcontainer: {
+    width: "100%",
+    flexDirection: "column",
+    // backgroundColor: "red",
+  },
+
   backgroundStripe1: {
     height: 53,
     alignSelf: "stretch",
@@ -158,11 +180,5 @@ const styles = StyleSheet.create({
     height: 52,
     alignSelf: "stretch",
     backgroundColor: "rgba(33, 64, 113, 0.47)",
-  },
-
-  bottomcontainer: {
-    // flex: 1,
-    // flexDirection: 'column',
-    backgroundColor: "red",
   },
 });

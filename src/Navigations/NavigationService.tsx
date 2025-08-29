@@ -2,6 +2,13 @@
 
 import { storage } from "../Context/storage";
 
+type UserInfo = {
+  id: string;
+  email: string;
+  name: string;
+  photo?: string;
+};
+
 export class NavigationService {
   // Check if it's the first time launching the app
   static async isFirstLaunch(): Promise<boolean> {
@@ -25,20 +32,22 @@ export class NavigationService {
   }
 
   // Check if user is logged in
-  static async isUserLoggedIn(): Promise<boolean> {
+  // Check if user is logged in
+
+  static async isUserLoggedIn(): Promise<UserInfo | null> {
     try {
-      const isLoggedIn = storage.getBoolean("USER_LOGGED_IN");
-      return isLoggedIn === true;
+      const isLoggedIn = storage.getString("USER_LOGGED_IN");
+      return isLoggedIn ? (JSON.parse(isLoggedIn) as UserInfo) : null;
     } catch (error) {
       console.error("Error checking login status:", error);
-      return false;
+      return null;
     }
   }
 
   // Set user login status
-  static async setUserLoggedIn(status: boolean): Promise<void> {
+  static async setUserLoggedIn(userInfo: object): Promise<void> {
     try {
-      storage.set("USER_LOGGED_IN", status);
+      storage.set("USER_LOGGED_IN", JSON.stringify(userInfo));
     } catch (error) {
       console.error("Error setting login status:", error);
     }

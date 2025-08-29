@@ -1,11 +1,13 @@
 {
   "buildFiles": [
+    "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-mmkv/MMKV/Core/CMakeLists.txt",
     "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-mmkv/android/CMakeLists.txt",
     "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-mmkv/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt",
     "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt",
     "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt",
+    "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-webview/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup/CMakeLists.txt"
   ],
   "cleanCommandsComponents": [
@@ -49,6 +51,11 @@
         "/Users/harekrishn/.gradle/caches/8.12/transforms/fe8171312f8c0c1e92683296510581b4/transformed/react-android-0.78.3-debug/prefab/modules/reactnative/libs/android.arm64-v8a/libreactnative.so"
       ]
     },
+    "react_codegen_RNCWebViewSpec::@eb48929f9f7453740a6c": {
+      "artifactName": "react_codegen_RNCWebViewSpec",
+      "abi": "arm64-v8a",
+      "runtimeFiles": []
+    },
     "react_codegen_rnscreens::@25bcbd507e98d3a854ad": {
       "artifactName": "react_codegen_rnscreens",
       "abi": "arm64-v8a",
@@ -78,6 +85,11 @@
         "/Users/harekrishn/.gradle/caches/8.12/transforms/fe8171312f8c0c1e92683296510581b4/transformed/react-android-0.78.3-debug/prefab/modules/jsi/libs/android.arm64-v8a/libjsi.so",
         "/Users/harekrishn/.gradle/caches/8.12/transforms/bed008b7c3772c7d5adf4fefb31dbc50/transformed/fbjni-0.7.0/prefab/modules/fbjni/libs/android.arm64-v8a/libfbjni.so"
       ]
+    },
+    "react_codegen_RNGoogleSignInCGen::@337b7b353bd94a4215c0": {
+      "artifactName": "react_codegen_RNGoogleSignInCGen",
+      "abi": "arm64-v8a",
+      "runtimeFiles": []
     },
     "react_codegen_RNMmkvSpec::@7541eabbae598da31a69": {
       "artifactName": "react_codegen_RNMmkvSpec",

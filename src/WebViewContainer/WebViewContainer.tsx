@@ -42,7 +42,7 @@ const WebViewContainer = () => {
   const webviewRef = useRef<WebView>(null);
 
   const { email, name } = userInfo?.data?.user || {};
-  const securityToken = "TNSpl@123#";
+  const securityToken = "pass@2025";
 
   useEffect(() => {
     if (email && name) {
@@ -142,8 +142,7 @@ const WebViewContainer = () => {
         <WebView
           ref={webviewRef}
           source={{
-            // uri: `https://ai.ceoitbox.com/?email=${userEmail}&passKey=${securityToken}&userName=${userName}`,
-            uri: `https://meet.ceoitbox.com/?email=${userEmail}&passKey=${securityToken}&userName=${userName}`,
+            uri: `https://meet.ceoitbox.com/?email=${userEmail}&passkey=${securityToken}&userName=${userName}`,
           }}
           style={{ flex: 1 }}
           javaScriptEnabled={true}

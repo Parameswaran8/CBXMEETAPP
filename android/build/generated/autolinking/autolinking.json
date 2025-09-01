@@ -684,9 +684,9 @@
     "ios": {
       "sourceDir": "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/ios",
       "xcodeProject": {
-        "name": "CBXMEETAPP.xcworkspace",
+        "name": "CBXMEETAPP.xcodeproj",
         "path": ".",
-        "isWorkspace": true
+        "isWorkspace": false
       },
       "assets": []
     },

@@ -1,0 +1,115 @@
+{
+  "buildFiles": [
+    "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/@react-native-google-signin/google-signin/android/build/generated/source/codegen/jni/CMakeLists.txt",
+    "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-mmkv/MMKV/Core/CMakeLists.txt",
+    "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-mmkv/android/CMakeLists.txt",
+    "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-mmkv/android/build/generated/source/codegen/jni/CMakeLists.txt",
+    "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt",
+    "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-screens/android/src/main/jni/CMakeLists.txt",
+    "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt",
+    "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native-webview/android/build/generated/source/codegen/jni/CMakeLists.txt",
+    "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/node_modules/react-native/ReactAndroid/cmake-utils/default-app-setup/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/harekrishn/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/android/app/.cxx/RelWithDebInfo/91b643s2/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/harekrishn/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/android/app/.cxx/RelWithDebInfo/91b643s2/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "appmodules::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "appmodules",
+      "output": "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/android/app/build/intermediates/cxx/RelWithDebInfo/91b643s2/obj/x86/libappmodules.so",
+      "runtimeFiles": [
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/bed008b7c3772c7d5adf4fefb31dbc50/transformed/fbjni-0.7.0/prefab/modules/fbjni/libs/android.x86/libfbjni.so",
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/057c5c4ee8f6b3fbfdbaaf6a1c9b2ea9/transformed/react-android-0.78.3-release/prefab/modules/jsi/libs/android.x86/libjsi.so",
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/057c5c4ee8f6b3fbfdbaaf6a1c9b2ea9/transformed/react-android-0.78.3-release/prefab/modules/reactnative/libs/android.x86/libreactnative.so"
+      ]
+    },
+    "core::@1b9a7d546b295b7d0867": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "core",
+      "output": "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/android/app/.cxx/RelWithDebInfo/91b643s2/x86/RNMmkvSpec_cxxmodule_autolinked_build/core/libcore.a"
+    },
+    "react-native-mmkv::@4ae6a1e65d3e68ba0197": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "react-native-mmkv",
+      "output": "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/android/app/build/intermediates/cxx/RelWithDebInfo/91b643s2/obj/x86/libreact-native-mmkv.so",
+      "runtimeFiles": [
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/bed008b7c3772c7d5adf4fefb31dbc50/transformed/fbjni-0.7.0/prefab/modules/fbjni/libs/android.x86/libfbjni.so",
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/057c5c4ee8f6b3fbfdbaaf6a1c9b2ea9/transformed/react-android-0.78.3-release/prefab/modules/jsi/libs/android.x86/libjsi.so",
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/057c5c4ee8f6b3fbfdbaaf6a1c9b2ea9/transformed/react-android-0.78.3-release/prefab/modules/reactnative/libs/android.x86/libreactnative.so"
+      ]
+    },
+    "react_codegen_RNCWebViewSpec::@eb48929f9f7453740a6c": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "react_codegen_RNCWebViewSpec"
+    },
+    "react_codegen_RNGoogleSignInCGen::@337b7b353bd94a4215c0": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "react_codegen_RNGoogleSignInCGen"
+    },
+    "react_codegen_RNMmkvSpec::@7541eabbae598da31a69": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "react_codegen_RNMmkvSpec"
+    },
+    "react_codegen_rnscreens::@25bcbd507e98d3a854ad": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "react_codegen_rnscreens",
+      "output": "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/android/app/build/intermediates/cxx/RelWithDebInfo/91b643s2/obj/x86/libreact_codegen_rnscreens.so",
+      "runtimeFiles": [
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/057c5c4ee8f6b3fbfdbaaf6a1c9b2ea9/transformed/react-android-0.78.3-release/prefab/modules/reactnative/libs/android.x86/libreactnative.so",
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/057c5c4ee8f6b3fbfdbaaf6a1c9b2ea9/transformed/react-android-0.78.3-release/prefab/modules/jsi/libs/android.x86/libjsi.so",
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/bed008b7c3772c7d5adf4fefb31dbc50/transformed/fbjni-0.7.0/prefab/modules/fbjni/libs/android.x86/libfbjni.so"
+      ]
+    },
+    "react_codegen_rnsvg::@4f40eb209d0c0b4a3b65": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "react_codegen_rnsvg",
+      "output": "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/android/app/build/intermediates/cxx/RelWithDebInfo/91b643s2/obj/x86/libreact_codegen_rnsvg.so",
+      "runtimeFiles": [
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/057c5c4ee8f6b3fbfdbaaf6a1c9b2ea9/transformed/react-android-0.78.3-release/prefab/modules/reactnative/libs/android.x86/libreactnative.so",
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/057c5c4ee8f6b3fbfdbaaf6a1c9b2ea9/transformed/react-android-0.78.3-release/prefab/modules/jsi/libs/android.x86/libjsi.so",
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/bed008b7c3772c7d5adf4fefb31dbc50/transformed/fbjni-0.7.0/prefab/modules/fbjni/libs/android.x86/libfbjni.so"
+      ]
+    },
+    "react_codegen_safeareacontext::@7984cd80db47aa7b952a": {
+      "toolchain": "toolchain",
+      "abi": "x86",
+      "artifactName": "react_codegen_safeareacontext",
+      "output": "/Users/harekrishn/Desktop/Param/WebView CLI CBXMEET/Final Folder/CBXMEETAPP/android/app/build/intermediates/cxx/RelWithDebInfo/91b643s2/obj/x86/libreact_codegen_safeareacontext.so",
+      "runtimeFiles": [
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/bed008b7c3772c7d5adf4fefb31dbc50/transformed/fbjni-0.7.0/prefab/modules/fbjni/libs/android.x86/libfbjni.so",
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/057c5c4ee8f6b3fbfdbaaf6a1c9b2ea9/transformed/react-android-0.78.3-release/prefab/modules/jsi/libs/android.x86/libjsi.so",
+        "/Users/harekrishn/.gradle/caches/8.12/transforms/057c5c4ee8f6b3fbfdbaaf6a1c9b2ea9/transformed/react-android-0.78.3-release/prefab/modules/reactnative/libs/android.x86/libreactnative.so"
+      ]
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "/Users/harekrishn/Library/Android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang.lld",
+      "cppCompilerExecutable": "/Users/harekrishn/Library/Android/sdk/ndk/27.1.12297006/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++.lld"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

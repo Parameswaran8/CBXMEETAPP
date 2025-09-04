@@ -8,6 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { NavigationService } from "../Navigations/NavigationService";
 import Navigation from "../Navigations/Navigation";
+import { s } from "react-native-size-matters";
 
 const LoginScreen = () => {
   const navigation = useNavigation<any>();
@@ -33,8 +34,9 @@ const LoginScreen = () => {
       }
 
       const getUserInfo = await NavigationService.isUserLoggedIn();
+      console.log("37", getUserInfo);
 
-      if (getUserInfo) {
+      if (getUserInfo && getUserInfo.type == "success") {
         navigation.navigate("WebView", { userInfo: getUserInfo });
       }
     } catch (error) {
@@ -56,13 +58,9 @@ const LoginScreen = () => {
           <Text style={styles.welcomeSubtitle}>Glad to see you here!</Text>
         </View>
 
-        <TouchableOpacity
-          style={styles.googleButton}
-          // onPress={handleGoogleLogin}
-          onPress={signIn}
-        >
+        <TouchableOpacity style={styles.googleButton} onPress={signIn}>
           <View style={styles.googleIcon}>
-            <GoogleIcon size={48} />
+            <GoogleIcon size={s(40)} />
           </View>
           <Text style={styles.googleButtonText}>Sign in with Google</Text>
         </TouchableOpacity>
@@ -114,25 +112,25 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
   },
   topBar: {
-    paddingTop: 20,
-    paddingLeft: 20,
+    paddingTop: s(20),
+    paddingLeft: s(20),
   },
   middleSection: {
     alignItems: "center",
     justifyContent: "center",
   },
   titleContainer: {
-    marginBottom: 30,
+    marginBottom: s(25),
   },
   welcomeTitle: {
     color: "#040C1A",
-    fontSize: 32,
+    fontSize: s(26),
     textAlign: "center",
-    marginBottom: 7,
+    marginBottom: s(5),
   },
   welcomeSubtitle: {
     color: "#747D8C",
-    fontSize: 16,
+    fontSize: s(12.5),
     fontWeight: "bold",
     textAlign: "center",
     fontFamily: "Poppins-Regular",
@@ -142,23 +140,23 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#FFFFFF",
-    borderRadius: 229,
-    paddingVertical: 18,
-    paddingHorizontal: 60,
-    marginTop: 20,
+    borderRadius: s(229),
+    paddingVertical: s(15),
+    paddingHorizontal: s(50),
+    marginTop: s(20),
     elevation: 3,
-    gap: 8,
+    gap: s(6),
   },
   googleIcon: {
-    borderRadius: 229,
-    width: 44,
-    height: 44,
-    marginRight: 6,
-    marginBottom: 2,
+    borderRadius: s(229),
+    width: s(40),
+    height: s(40),
+    marginRight: s(6),
+    marginBottom: s(2),
   },
   googleButtonText: {
     color: "#03338F",
-    fontSize: 20,
+    fontSize: s(16),
     fontWeight: "normal",
     fontFamily: "Poppins-Regular",
   },
@@ -166,6 +164,6 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   bottomStripe: {
-    height: 52,
+    height: s(45),
   },
 });

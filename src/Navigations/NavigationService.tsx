@@ -3,10 +3,8 @@
 import { storage } from "../Context/storage";
 
 type UserInfo = {
-  id: string;
-  email: string;
-  name: string;
-  photo?: string;
+  type: string;
+  data: object;
 };
 
 export class NavigationService {
@@ -50,6 +48,16 @@ export class NavigationService {
       storage.set("USER_LOGGED_IN", JSON.stringify(userInfo));
     } catch (error) {
       console.error("Error setting login status:", error);
+    }
+  }
+
+  static async RemoveLoggedIN(): Promise<string | null> {
+    try {
+      storage.delete("USER_LOGGED_IN");
+      return "Logout Successfully";
+    } catch (error) {
+      console.error("Error checking login status:", error);
+      return null;
     }
   }
 

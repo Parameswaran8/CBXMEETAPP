@@ -37,7 +37,6 @@ temp/
 /android/.gradle/
 /android/local.properties
 /android/captures/
-/android/app/*.keystore
 /android/app/*.jks
 /android/.cxx/
 /android/app/intermediates/

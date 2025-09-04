@@ -17,6 +17,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { NavigationService } from "../Navigations/NavigationService";
+import { s, vs } from "react-native-size-matters";
 
 const { width } = Dimensions.get("window");
 // Define your stack param list
@@ -82,7 +83,9 @@ export default function OnBoardingScreen() {
           style={styles.middleContent}
           onPress={handleNext}
         >
-          <QuickMeetingIcon color="" size={223} />
+          <View style={styles.clock}>
+            <QuickMeetingIcon color="" size={s(200)} />
+          </View>
           <Text style={styles.titleText}>Quick Meeting Setup</Text>
         </TouchableOpacity>
 
@@ -92,7 +95,9 @@ export default function OnBoardingScreen() {
           style={styles.middleContent}
           onPress={handleNext}
         >
-          <SmartReminderIcon color="" size={223} />
+          <View style={styles.reminderAlt}>
+            <SmartReminderIcon color="" size={s(200)} />
+          </View>
           <Text style={styles.titleText}>Smart Reminder Alerts</Text>
         </TouchableOpacity>
 
@@ -102,7 +107,9 @@ export default function OnBoardingScreen() {
           style={styles.middleContent}
           onPress={handleNext}
         >
-          <SeamlessCalendarIcon color="" size={223} />
+          <View style={styles.calendarSync}>
+            <SeamlessCalendarIcon color="" size={s(200)} />
+          </View>
           <Text style={styles.titleText}>Seamless Calendar Sync</Text>
         </TouchableOpacity>
       </ScrollView>
@@ -132,49 +139,61 @@ const styles = StyleSheet.create({
   },
   skipButtonContainer: {
     alignItems: "flex-end",
-    paddingTop: 20,
-    paddingRight: 20,
+    paddingTop: s(18),
+    paddingRight: s(18),
   },
   button: {
     backgroundColor: "#040C1A",
-    borderRadius: 43,
-    paddingVertical: 10,
-    paddingHorizontal: 21,
+    borderRadius: s(38),
+    paddingVertical: s(8),
+    paddingHorizontal: s(18),
   },
   buttonText: {
     color: "#FFFFFF",
-    fontSize: 14,
+    fontSize: s(12),
     fontWeight: "bold",
   },
   middleContent: {
     width: width,
     alignItems: "center",
     justifyContent: "center",
-    gap: 80,
+    gap: s(50),
   },
   titleText: {
     color: "#FFFFFF",
-    fontSize: 58,
+    fontSize: s(48),
     fontWeight: "bold",
     textAlign: "center",
-    marginHorizontal: 26,
+    marginHorizontal: s(22),
   },
   progressContainer: {
     alignItems: "center",
-    marginBottom: 60,
+    marginBottom: s(48),
   },
   progressBarRow: {
     flexDirection: "row",
-    gap: 20,
+    gap: s(18),
   },
   progressDot: {
-    width: 72,
-    height: 5,
-    borderRadius: 25,
+    width: s(65),
+    height: s(4),
+    borderRadius: s(22),
     backgroundColor: "#040C1A3B",
   },
   activeDot: {
     backgroundColor: "#FFFFFF",
-    width: 72,
+    width: s(65),
+  },
+
+  clock: {
+    marginLeft: s(-32),
+  },
+
+  reminderAlt: {
+    marginLeft: s(55),
+  },
+
+  calendarSync: {
+    marginLeft: s(35),
   },
 });

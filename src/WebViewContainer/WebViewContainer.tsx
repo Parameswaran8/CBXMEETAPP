@@ -13,6 +13,8 @@ import { useRoute, RouteProp, useNavigation } from "@react-navigation/native";
 import { WebView } from "react-native-webview";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import NetInfo from "@react-native-community/netinfo";
+import { storage } from "../Context/storage";
+import { NavigationService } from "../Navigations/NavigationService";
 
 // If you have a typed navigator, replace "any"
 type WebViewRouteParams = {
@@ -130,6 +132,16 @@ const WebViewContainer = () => {
   console.log("userInfo 12", userInfo);
   console.log("Network connected:", isConnected);
 
+  const injectedJS = `
+    let meta = document.querySelector('meta[name=viewport]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.name = 'viewport';
+      document.head.appendChild(meta);
+    }
+    meta.content = 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no';
+  `;
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={"dark-content"} />
@@ -148,12 +160,24 @@ const WebViewContainer = () => {
           javaScriptEnabled={true}
           domStorageEnabled={true}
           startInLoadingState={true}
+          scalesPageToFit={false} // Android & iOS
+          injectedJavaScript={injectedJS} // stop user zooming
+          scrollEnabled={true} // still allow scroll
           onNavigationStateChange={(navState) => {
             setCanGoBack(navState.canGoBack);
+            console.log(153, navState.url);
+
+            if (navState.url === "https://meet.ceoitbox.com") {
+              setIsLoading(true);
+            }
 
             // ✅ Logout detect by URL
-            if (navState.url.includes("/login")) {
+            if (navState.url == "https://meet.ceoitbox.com/user") {
+              setIsLoading(true);
+              const logout = NavigationService.RemoveLoggedIN();
+              console.log("logout", logout);
               navigation.replace("Login");
+              setIsLoading(false);
             }
           }}
           onError={(syntheticEvent) => {

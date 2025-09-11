@@ -17,7 +17,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
 import type { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { NavigationService } from "../Navigations/NavigationService";
-import { s, vs } from "react-native-size-matters";
+import { s, scale, vs } from "react-native-size-matters";
 
 const { width } = Dimensions.get("window");
 // Define your stack param list
@@ -84,7 +84,7 @@ export default function OnBoardingScreen() {
           onPress={handleNext}
         >
           <View style={styles.clock}>
-            <QuickMeetingIcon color="" size={s(200)} />
+            <QuickMeetingIcon color="" size={vs(190)} />
           </View>
           <Text style={styles.titleText}>Quick Meeting Setup</Text>
         </TouchableOpacity>
@@ -96,7 +96,7 @@ export default function OnBoardingScreen() {
           onPress={handleNext}
         >
           <View style={styles.reminderAlt}>
-            <SmartReminderIcon color="" size={s(200)} />
+            <SmartReminderIcon color="" size={vs(190)} />
           </View>
           <Text style={styles.titleText}>Smart Reminder Alerts</Text>
         </TouchableOpacity>
@@ -108,7 +108,7 @@ export default function OnBoardingScreen() {
           onPress={handleNext}
         >
           <View style={styles.calendarSync}>
-            <SeamlessCalendarIcon color="" size={s(200)} />
+            <SeamlessCalendarIcon color="" size={vs(170)} />
           </View>
           <Text style={styles.titleText}>Seamless Calendar Sync</Text>
         </TouchableOpacity>
@@ -157,14 +157,15 @@ const styles = StyleSheet.create({
     width: width,
     alignItems: "center",
     justifyContent: "center",
-    gap: s(50),
+    gap: s(40),
   },
   titleText: {
     color: "#FFFFFF",
-    fontSize: s(48),
+    fontSize: scale(42),
     fontWeight: "bold",
     textAlign: "center",
-    marginHorizontal: s(22),
+    marginHorizontal: scale(20),
+    width: scale(190),
   },
   progressContainer: {
     alignItems: "center",
@@ -186,7 +187,7 @@ const styles = StyleSheet.create({
   },
 
   clock: {
-    marginLeft: s(-32),
+    marginLeft: s(-40),
   },
 
   reminderAlt: {

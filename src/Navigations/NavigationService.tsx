@@ -5,6 +5,7 @@ import { storage } from "../Context/storage";
 type UserInfo = {
   type: string;
   data: object;
+  expiresAt?: number;
 };
 
 export class NavigationService {
@@ -30,12 +31,24 @@ export class NavigationService {
   }
 
   // Check if user is logged in
-  // Check if user is logged in
 
   static async isUserLoggedIn(): Promise<UserInfo | null> {
     try {
-      const isLoggedIn = storage.getString("USER_LOGGED_IN");
-      return isLoggedIn ? (JSON.parse(isLoggedIn) as UserInfo) : null;
+      const stored = storage.getString("USER_LOGGED_IN");
+      console.log("stored", stored);
+      if (!stored) return null;
+
+      const parsed = JSON.parse(stored);
+      const { userInfo, expiresAt } = parsed;
+
+      // check expiry
+      if (expiresAt && Date.now() > expiresAt) {
+        // expired — remove and return null
+        storage.delete("USER_LOGGED_IN");
+        return null;
+      }
+
+      return userInfo as UserInfo;
     } catch (error) {
       console.error("Error checking login status:", error);
       return null;
@@ -45,7 +58,9 @@ export class NavigationService {
   // Set user login status
   static async setUserLoggedIn(userInfo: object): Promise<void> {
     try {
-      storage.set("USER_LOGGED_IN", JSON.stringify(userInfo));
+      const daysValid = 180; // 6 months
+      const expiresAt = Date.now() + daysValid * 24 * 60 * 60 * 1000; // 6 months
+      storage.set("USER_LOGGED_IN", JSON.stringify({ userInfo, expiresAt }));
     } catch (error) {
       console.error("Error setting login status:", error);
     }
@@ -61,48 +76,45 @@ export class NavigationService {
     }
   }
 
-  // Check internet connectivity
-  // static async checkInternetConnection(): Promise<{
-  //   isConnected: boolean;
-  //   isInternetReachable: boolean;
-  //   connectionType: string;
-  // }> {
-  //   try {
-  //     const netInfo = await NetInfo.fetch();
-  //     return {
-  //       isConnected: netInfo.isConnected ?? false,
-  //       isInternetReachable: netInfo.isInternetReachable ?? false,
-  //       connectionType: netInfo.type,
-  //     };
-  //   } catch (error) {
-  //     console.error("Error checking internet connection:", error);
-  //     return {
-  //       isConnected: false,
-  //       isInternetReachable: false,
-  //       connectionType: "unknown",
-  //     };
-  //   }
-  // }
+  static async getUserInfo(): Promise<object | null> {
+    try {
+      const stored = storage.getString("USER_LOGGED_IN");
+      console.log("stored", stored);
+      if (!stored) return null;
 
-  // Test connection speed (basic implementation)
-  // static async testConnectionSpeed(): Promise<"fast" | "slow" | "error"> {
-  //   try {
-  //     const startTime = Date.now();
-  //     const response = await fetch("https://www.google.com/favicon.ico", {
-  //       method: "HEAD",
-  //       cache: "no-cache",
-  //     });
-  //     const endTime = Date.now();
-  //     const duration = endTime - startTime;
+      const parsed = JSON.parse(stored);
+      const { userInfo } = parsed;
 
-  //     if (response.ok) {
-  //       // Consider connection slow if it takes more than 3 seconds
-  //       return duration > 3000 ? "slow" : "fast";
-  //     }
-  //     return "error";
-  //   } catch (error) {
-  //     console.error("Error testing connection speed:", error);
-  //     return "error";
-  //   }
-  // }
+      return userInfo as object;
+    } catch (error) {
+      console.error("Error retrieving user info:", error);
+      return null;
+    }
+  }
+
+  static async loginWithEmail(email: string, password: string): Promise<any> {
+    try {
+      const response = await fetch("https://meet.ceoitbox.com/api/v1/signin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Login failed");
+      }
+
+      return {
+        success: true,
+        data: data,
+      };
+    } catch (error: any) {
+      console.error("Error face - loginWithEmail error:", error);
+      throw error;
+    }
+  }
 }

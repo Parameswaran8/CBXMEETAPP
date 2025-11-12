@@ -12,6 +12,9 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		F734A20C2E9E745500C2CAF6 /* Launch Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F734A20B2E9E745400C2CAF6 /* Launch Icon.png */; };
+		F734A20E2E9E7BE400C2CAF6 /* Launch_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F734A20D2E9E7BE400C2CAF6 /* Launch_icon.png */; };
+		F750B2112EB3C1E600E5E865 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F750B2102EB3C1E600E5E865 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +28,10 @@
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = CBXMEETAPP/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = CBXMEETAPP/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F734A20B2E9E745400C2CAF6 /* Launch Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch Icon.png"; sourceTree = "<group>"; };
+		F734A20D2E9E7BE400C2CAF6 /* Launch_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Launch_icon.png; sourceTree = "<group>"; };
+		F735E54F2EC318EA002F5650 /* CBXMEETAPP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = CBXMEETAPP.entitlements; path = CBXMEETAPP/CBXMEETAPP.entitlements; sourceTree = "<group>"; };
+		F750B2102EB3C1E600E5E865 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,11 +49,13 @@
 		13B07FAE1A68108700A75B9A /* CBXMEETAPP */ = {
 			isa = PBXGroup;
 			children = (
+				F735E54F2EC318EA002F5650 /* CBXMEETAPP.entitlements */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				761780EC2CA45674006654EE /* AppDelegate.swift */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				F750B2102EB3C1E600E5E865 /* Assets.xcassets */,
 			);
 			name = CBXMEETAPP;
 			sourceTree = "<group>";
@@ -63,6 +72,8 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				F734A20D2E9E7BE400C2CAF6 /* Launch_icon.png */,
+				F734A20B2E9E745400C2CAF6 /* Launch Icon.png */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -160,6 +171,9 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				F734A20E2E9E7BE400C2CAF6 /* Launch_icon.png in Resources */,
+				F734A20C2E9E745500C2CAF6 /* Launch Icon.png in Resources */,
+				F750B2112EB3C1E600E5E865 /* Assets.xcassets in Resources */,
 				0B039FF613FD5E52E06A5FF0 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,10 +272,18 @@
 			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-CBXMEETAPP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = CBXMEETAPP/CBXMEETAPP.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5687JJTTN6;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_BITCODE = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				INFOPLIST_FILE = CBXMEETAPP/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CBXMEET;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -273,10 +295,16 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cbxmeetapp;
 				PRODUCT_NAME = CBXMEETAPP;
+				REGISTER_APP_GROUPS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -286,9 +314,18 @@
 			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-CBXMEETAPP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = CBXMEETAPP/CBXMEETAPP.entitlements;
+				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5687JJTTN6;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				INFOPLIST_FILE = CBXMEETAPP/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CBXMEET;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -300,9 +337,15 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cbxmeetapp;
 				PRODUCT_NAME = CBXMEETAPP;
+				REGISTER_APP_GROUPS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

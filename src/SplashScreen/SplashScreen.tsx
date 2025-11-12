@@ -82,7 +82,9 @@ const SplaceScreen = () => {
       <Animated.View style={[styles.logoContainer, { opacity: fadeAnim }]}>
         <CBXMEETLOGO width={s(170)} height={s(153)} color={"#003366"} />
         <Text style={styles.titleText}>CBXMEET</Text>
-        <Text style={styles.subtitleText}>Meeting Scheduler</Text>
+        <Text style={[styles.titleText, styles.subtitleText]}>
+          Meeting Scheduler
+        </Text>
       </Animated.View>
 
       {/* Bottom stripes */}
@@ -118,6 +120,7 @@ const styles = StyleSheet.create({
     marginBottom: s(5),
     alignItems: "center",
   },
+
   titleText: {
     color: "#040C1A",
     fontSize: s(36),
@@ -128,6 +131,7 @@ const styles = StyleSheet.create({
     color: "#5D636E",
     fontSize: s(16),
   },
+
   loader: {
     marginTop: s(20),
   },

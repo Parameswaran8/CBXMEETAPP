@@ -1,26 +1,115 @@
-import React, { useEffect } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
+import React, { useEffect, useState } from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+  TextInput,
+  Platform,
+  ActivityIndicator,
+} from "react-native";
 import { BackIcon, GoogleIcon } from "../Icons/Icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
-// import { NavigationService } from "../Navigations/NavigationService";
-
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { NavigationService } from "../Navigations/NavigationService";
-import Navigation from "../Navigations/Navigation";
 import { s } from "react-native-size-matters";
+
+import {
+  appleAuth,
+  AppleButton,
+} from "@invertase/react-native-apple-authentication";
+
+const LabeledInput = ({
+  label,
+  value,
+  onChangeText,
+  secureTextEntry = false,
+  keyboardType = "default",
+  autoCapitalize = "sentences",
+  placeholder = "",
+}: any) => {
+  const [isFocused, setIsFocused] = useState(false);
+
+  return (
+    <View style={styles.inputWrapper}>
+      <View style={styles.labelInputContainer}>
+        <Text style={styles.label}>{label}</Text>
+        <TextInput
+          style={[styles.input, isFocused && styles.inputFocused]}
+          value={value}
+          onChangeText={onChangeText}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          secureTextEntry={secureTextEntry}
+          keyboardType={keyboardType}
+          autoCapitalize={autoCapitalize}
+          autoCorrect={false}
+          placeholder={placeholder}
+          placeholderTextColor="#C0C0C0"
+        />
+      </View>
+    </View>
+  );
+};
 
 const LoginScreen = () => {
   const navigation = useNavigation<any>();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     GoogleSignin.configure({
       webClientId:
         "159938487854-m996hp9rpsi9sqj3r93r9kblar0dvrs1.apps.googleusercontent.com",
+      iosClientId:
+        "159938487854-538etfqg3s7d2seqrc0rihur0sr9hq7s.apps.googleusercontent.com",
       offlineAccess: true,
       scopes: ["profile", "email"],
     });
   }, []);
+
+  const handleEmailLogin = async () => {
+    if (!email || !password) {
+      Alert.alert("Error", "Please enter both email and password");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      // Call AuthService for login
+      const response = await NavigationService.loginWithEmail(email, password);
+
+      if (response.success && response.data) {
+        // Format user info similar to Google Sign-In
+        const userInfo = {
+          type: "success",
+          data: {
+            user: response.data.user,
+            token: response.data.token,
+            // Add any other fields your API returns
+          },
+        };
+
+        // Save user info with 6 months expiration
+        await NavigationService.setUserLoggedIn(userInfo);
+
+        // Navigate to WebView
+        navigation.navigate("WebView", { userInfo: userInfo });
+      }
+    } catch (error: any) {
+      console.error("Email login error:", error);
+      Alert.alert(
+        "Login Failed",
+        error.message || "Please check your credentials and try again"
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const signIn = async () => {
     try {
@@ -34,13 +123,55 @@ const LoginScreen = () => {
       }
 
       const getUserInfo = await NavigationService.isUserLoggedIn();
-      console.log("37", getUserInfo);
+      console.log("google login info ", getUserInfo);
 
       if (getUserInfo && getUserInfo.type == "success") {
         navigation.navigate("WebView", { userInfo: getUserInfo });
       }
     } catch (error) {
       console.error("Google Sign-In error:", error);
+    }
+  };
+
+  const signInWithApple = async () => {
+    try {
+      const appleAuthRequestResponse = await appleAuth.performRequest({
+        requestedOperation: appleAuth.Operation.LOGIN,
+        requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
+      });
+
+      const { email, fullName, user } = appleAuthRequestResponse;
+      console.log("Apple auth response:", appleAuthRequestResponse);
+
+      // fallback name if Apple hides user name on re-login
+      const displayName =
+        fullName?.givenName || fullName?.familyName
+          ? `${fullName?.givenName || ""} ${fullName?.familyName || ""}`.trim()
+          : "Apple User";
+
+      const userInfo = {
+        type: "success",
+        data: {
+          user: {
+            email: email || `${user}@appleid.com`, // fallback if Apple hides real email
+            name: displayName || "Apple User",
+            _user: user,
+          },
+        },
+      };
+
+      await NavigationService.setUserLoggedIn(userInfo);
+
+      // console.log("Apple user info:", userInfo);
+      const getUserInfo = await NavigationService.isUserLoggedIn();
+      // console.log("171 getUserInfo ", getUserInfo);
+
+      if (getUserInfo && getUserInfo.type == "success") {
+        navigation.navigate("WebView", { userInfo: getUserInfo });
+      }
+    } catch (error: any) {
+      console.log("Apple login error:", error);
+      Alert.alert("Login Error", error?.message || "Apple Sign-in failed");
     }
   };
 
@@ -64,6 +195,22 @@ const LoginScreen = () => {
           </View>
           <Text style={styles.googleButtonText}>Sign in with Google</Text>
         </TouchableOpacity>
+
+        {Platform.OS === "ios" && (
+          <View style={{ marginTop: 20 }}>
+            <AppleButton
+              buttonStyle={AppleButton.Style.WHITE_OUTLINE}
+              buttonType={AppleButton.Type.SIGN_IN}
+              cornerRadius={15}
+              style={{
+                width: 250,
+                height: 48,
+                borderRadius: 30,
+              }}
+              onPress={signInWithApple}
+            />
+          </View>
+        )}
       </View>
 
       {/* Bottom Section */}
@@ -118,6 +265,7 @@ const styles = StyleSheet.create({
   middleSection: {
     alignItems: "center",
     justifyContent: "center",
+    paddingHorizontal: s(20),
   },
   titleContainer: {
     marginBottom: s(25),
@@ -135,6 +283,76 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontFamily: "Poppins-Regular",
   },
+  formContainer: {
+    width: "100%",
+    marginTop: s(20),
+  },
+  inputWrapper: {
+    marginBottom: s(20),
+  },
+  labelInputContainer: {
+    position: "relative",
+  },
+  label: {
+    position: "absolute",
+    left: s(20),
+    top: s(-8),
+    backgroundColor: "#FFFFFF",
+    paddingHorizontal: s(6),
+    fontSize: s(13),
+    color: "#040C1A",
+    fontWeight: "500",
+    fontFamily: "Poppins-Regular",
+    zIndex: 1,
+  },
+  input: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: s(12),
+    paddingVertical: s(15),
+    paddingHorizontal: s(20),
+    fontSize: s(15),
+    color: "#040C1A",
+    fontFamily: "Poppins-Regular",
+    borderWidth: 1.5,
+    borderColor: "#D0D0D0",
+  },
+  inputFocused: {
+    borderColor: "#03338F",
+    borderWidth: 2,
+  },
+  emailLoginButton: {
+    backgroundColor: "#03338F",
+    borderRadius: s(12),
+    paddingVertical: s(15),
+    alignItems: "center",
+    marginTop: s(5),
+    marginBottom: s(20),
+  },
+  buttonDisabled: {
+    opacity: 0.6,
+  },
+  emailLoginButtonText: {
+    color: "#FFFFFF",
+    fontSize: s(16),
+    fontWeight: "600",
+    fontFamily: "Poppins-Regular",
+  },
+  dividerContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: s(20),
+  },
+  dividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: "#E0E0E0",
+  },
+  dividerText: {
+    marginHorizontal: s(15),
+    color: "#747D8C",
+    fontSize: s(12),
+    fontFamily: "Poppins-Regular",
+  },
   googleButton: {
     flexDirection: "row",
     alignItems: "center",
@@ -143,7 +361,6 @@ const styles = StyleSheet.create({
     borderRadius: s(229),
     paddingVertical: s(15),
     paddingHorizontal: s(50),
-    marginTop: s(20),
     elevation: 3,
     gap: s(6),
   },

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import Svg, {
   Path,
   Rect,
@@ -8,7 +8,7 @@ import Svg, {
   ClipPath,
   Mask,
   Ellipse,
-} from 'react-native-svg';
+} from "react-native-svg";
 
 interface IconProps {
   size?: number;
@@ -1627,4 +1627,16 @@ export const EyeOffIcon: React.FC<IconProps> = ({ size, color }) => (
   </Svg>
 );
 
+export const IOSbackIcon: React.FC<IconProps> = ({ size, color }) => (
+  <Svg width={size} height={size} viewBox="0 0 24 24">
+    <Path
+      fill="none"
+      stroke={color}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={1.5}
+      d="m14 7l-5 5l5 5"
+    />
+  </Svg>
+);
 export const ZoomIcon: React.FC<IconProps> = ({ size, color }) => <></>;
